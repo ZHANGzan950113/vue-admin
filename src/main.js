@@ -1,4 +1,6 @@
 import './assets/main.css'
+// 引入雪碧图
+import 'virtual:svg-icons-register'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
