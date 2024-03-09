@@ -1,0 +1,62 @@
+
+.app_container {
+  display: flex;
+  background-color: $bg-100;
+}
+
+// 侧边栏
+.el-aside.aside {
+  background-color: $bg-100;
+  height: 100vh;
+  border-right: 1px solid $bg-300;
+  .el-menu-item{
+    color: $text-200 !important;
+    transition: all 0.5s;
+    &:hover {
+      background-color: $bg-200 !important;
+    }
+    &.is-active {
+      font-weight: bolder;
+      color: $text-200 !important;
+    }
+  }
+  .el-sub-menu__title {
+    color: $text-200 !important;
+    transition: all 0.5s;
+    &:hover {
+      background-color: $bg-200 !important;
+    }
+  }
+}
+.main_container {
+  flex: 1;
+  width: calc(100% - $asideW);
+  .navbar {
+    background-color: $bg-200;
+    height: 50px;
+  }
+  .main {
+    box-sizing: border-box;
+    padding: 20px;
+  }
+}
+
+// 多选框
+.el-checkbox__inner {
+  background-color: $bg-100 !important;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner {
+  border-color: $bg-100 !important;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner::after {
+  border-color: $text-200 !important;
+}
+.el-checkbox__inner:hover {
+  border-color: $bg-300 !important;
+}
+.el-checkbox__input.is-indeterminate .el-checkbox__inner {
+  border-color: $bg-300 !important;
+}
+.el-checkbox__input.is-indeterminate .el-checkbox__inner::before {
+  background-color: $text-200 !important;
+}

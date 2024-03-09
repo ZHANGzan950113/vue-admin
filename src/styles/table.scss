@@ -1,0 +1,18 @@
+.el-table {
+  background-color: $bg-200 !important; 
+  width: 100%;
+  tr {
+    background-color: $bg-200 !important; 
+  }
+  th.el-table__cell {
+    background-color: $bg-200 !important; 
+  }
+  // 当前行
+  .el-table__body tr.current-row>td.el-table__cell {
+    background-color: $bg-300 !important; 
+  }
+}
+// row hover选择器
+.el-table--enable-row-hover .el-table__body tr:hover>td.el-table__cell {
+  background-color: $bg-300 !important; 
+}
