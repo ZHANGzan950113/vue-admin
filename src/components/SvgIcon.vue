@@ -10,7 +10,7 @@ const props = defineProps({
   className: String
 })
 const iconName = computed(() => {
-  console.log(props)
+  console.log(props,'props')
   return `#icon-${props.className}`
 })
 
