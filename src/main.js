@@ -1,4 +1,5 @@
-import './assets/main.css'
+// 引入全局样式
+import './styles/index.scss'
 // 引入雪碧图
 import 'virtual:svg-icons-register'
 
