@@ -1,20 +1,18 @@
 <template>
-  <div>
-    <table-com
-      :columns="columns"
-      :tableData="tableData"
-      @handle-edit="handleEdit"
-      @handle-del="handleDel"
-      @selection-change="selectionChange"
-    >
-      <el-table-column type="selection"></el-table-column>
-    </table-com>
-  </div>
+  <table-com
+    :columns="columns"
+    :tableData="tableData"
+    @handle-edit="handleEdit"
+    @handle-del="handleDel"
+    @selection-change="selectionChange"
+  >
+    <el-table-column type="selection"></el-table-column>
+  </table-com>
 </template>
 
 <script setup>
 import { onMounted, reactive } from 'vue'
-import { getUser } from '@/api/user.js'
+import { getUser } from '@/api/auth/user.js'
 onMounted(() => {
   getUser().then((res) => {
     console.log(res)

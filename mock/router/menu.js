@@ -17,5 +17,5 @@ function roleList(){
 }
 
 export default {
-  '/role': roleList
+  '/menu': roleList
 }
