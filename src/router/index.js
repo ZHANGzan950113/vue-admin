@@ -5,6 +5,14 @@ const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/login',
+      name: 'login',
+      component: () => import('@/views/LoginView.vue'),
+      meta: {
+        title: '登录'
+      }
+    },
+    {
       path:'/',
       name:'layout',
       component: Layout,

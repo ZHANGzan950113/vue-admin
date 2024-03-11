@@ -1,0 +1,28 @@
+.el-form.transparent {
+  .el-input__wrapper {
+    background-color: rgba($bg-100,0.1) !important;
+    box-shadow: none !important;
+    // border-bottom: 1px solid $primary-300 !important;
+    border-radius: 0 !important;
+    .el-input__inner::placeholder {
+      color: $accent-100 !important;
+    }
+    &:hover {
+      
+    }
+  }
+  .el-form-item__error {
+    color: $text-200 !important;
+  }
+  .el-form-item__content {
+    justify-content: center;
+  }
+  .el-button{
+    background-color: $bg-300 !important;
+    border: none !important;
+    color: $bg-100
+     !important;
+    &:hover {
+    }
+  }
+}
