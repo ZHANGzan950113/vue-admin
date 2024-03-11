@@ -66,8 +66,8 @@ const handle = {
 
 
 
-function user(method){
-  return handle[method]()
+function user(obj){
+  return handle[obj.method]()
 }
 
 export default {

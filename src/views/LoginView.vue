@@ -16,6 +16,7 @@
 
 <script setup>
 import { reactive } from 'vue'
+import { login } from '@/api/ccount.js'
 const loginForm = reactive({
   username: '',
   password: ''
@@ -27,7 +28,9 @@ const rules = {
 }
 
 const handleSubmit = () => {
-  console.log('登录信息:', loginForm)
+  login(loginForm).then((res) => {
+    console.log(res, '登录成功')
+  })
 }
 </script>
 

@@ -23,11 +23,13 @@
     "@vue/eslint-config-prettier": "^8.0.0",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
+    "koa-bodyparser": "^4.4.1",
     "mockjs": "^1.1.0",
     "prettier": "^3.0.3",
     "sass": "^1.71.1",
     "unplugin-auto-import": "^0.17.5",
     "unplugin-vue-components": "^0.26.0",
+    "url": "^0.11.3",
     "vite": "^5.0.11",
     "vite-plugin-svg-icons": "^2.0.1"
   }
