@@ -1,7 +1,7 @@
-import { useAppStore } from '@/store/modules/app.js'
+import { useAppStore } from './modules/app.js'
+import { useUserStore } from './modules/user.js' 
 
-
-
-export default {
-  useAppStore
+export {
+  useAppStore,
+  useUserStore,
 }

@@ -18,6 +18,14 @@ const router = createRouter({
       component: Layout,
       children: [
         {
+          path:'/',
+          name:'home',
+          component: () => import('@/views/HomeView.vue'),
+          meta:{
+            title: '首页'
+          }
+        },
+        {
           path:'/components/icon',
           name:'icon',
           component: () => import('@/views/components/IconView.vue'),
@@ -62,10 +70,6 @@ const router = createRouter({
   ]
 })
 
-router.beforeEach((to, from, next) => {
-  // 设置页面标题
-  document.title = `${to.meta.title} | vue-admin`
-  next()
-})
+
 
 export default router

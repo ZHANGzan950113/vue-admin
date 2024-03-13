@@ -17,6 +17,10 @@ instance.interceptors.request.use(
   error => {
     // 对请求错误做些什么
     return Promise.reject(error);
+  },
+  request => {
+    console.log(request)
+    return request
   }
 );
 
@@ -24,6 +28,7 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   response => {
     // 对响应数据做一些处理，比如统一处理成功状态等
+    console.log()
     return response.data;
   },
   error => {

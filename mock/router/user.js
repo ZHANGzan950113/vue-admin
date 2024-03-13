@@ -70,6 +70,19 @@ function user(obj){
   return handle[obj.method]()
 }
 
+function userInfo(){
+  return {
+    code: 200,
+    data:{
+      name:'张赞',
+      age:16,
+      sex:1,
+      role:['admin']
+    }
+  }
+}
+
 export default {
   '/user': user,
+  '/userInfo': userInfo,
 }

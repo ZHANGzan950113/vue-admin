@@ -9,11 +9,15 @@ export default () => {
         // 以mock为开头的请求地址,返回mock数据
         if (req.url.startsWith('/mock')) {
           req.query = parseQuery(req._parsedUrl.query)
+          if(req.body) {
+            req.body =  JSON.parse(req.body)
+          }
           res.writeHead(200, { 'Content-Type': 'application/json'})
           const url = req._parsedUrl.pathname.replace('/mock', '')
           if(router[url] !== undefined) {
             const result  = router[url]({method: req.method, query: req.query, body: req.body})
             res.end(JSON.stringify(result))
+            
           }else {
             res.end(JSON.stringify({code :400, msg: '请求失败'}))
           }
@@ -41,6 +45,7 @@ function bodyParse(){
 
 // 解析HTML
 function parseQuery(query){
+  if(!query) return {}
   return query.split('&').reduce((prev, item)=>{
     const [key, value] = item.split('=');
     prev[key] = value; 

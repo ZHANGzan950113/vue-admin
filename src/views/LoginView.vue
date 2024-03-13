@@ -16,7 +16,11 @@
 
 <script setup>
 import { reactive } from 'vue'
-import { login } from '@/api/ccount.js'
+import { login } from '@/api/account.js'
+import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/index.js'
+const userStore = useUserStore()
+const router = useRouter()
 const loginForm = reactive({
   username: '',
   password: ''
@@ -27,10 +31,16 @@ const rules = {
   password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
 }
 
-const handleSubmit = () => {
-  login(loginForm).then((res) => {
-    console.log(res, '登录成功')
-  })
+const handleSubmit = async () => {
+  try {
+    let res = await login(loginForm)
+    if (res.code === 200) {
+      userStore.setToken(res.data.token)
+      router.push({ name: 'home' })
+    }
+  } catch (error) {
+    console.log(error)
+  }
 }
 </script>
 

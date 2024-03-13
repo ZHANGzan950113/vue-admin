@@ -6,11 +6,15 @@ const mockCcount = ['admin', 'user']
 
 
 
-function login(req) {
-  // const {username, password} = req.body
+function login(data) {
+  if(!data.body){
+    return {code: 400, msg: '请求参数错误'}
+  }
+  const {username, password} = data.body
+  console.log(username, password)
   return {
     code: 200,
-    data: {token: 'mock-token'},
+    data: {token: 'admin'},
     msg: '请求成功'
   }
 }
