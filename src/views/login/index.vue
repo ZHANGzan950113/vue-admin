@@ -14,6 +14,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'LoginView'
+}
+</script>
+
 <script setup>
 import { reactive } from 'vue'
 import { login } from '@/api/account.js'
@@ -36,7 +42,7 @@ const handleSubmit = async () => {
     let res = await login(loginForm)
     if (res.code === 200) {
       userStore.setToken(res.data.token)
-      router.push({ name: 'home' })
+      router.push({ path: '/' })
     }
   } catch (error) {
     console.log(error)

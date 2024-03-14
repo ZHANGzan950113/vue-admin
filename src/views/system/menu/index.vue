@@ -21,6 +21,11 @@
   </table-com>
 </template>
 
+<script>
+export default {
+  name: 'MenuView'
+}
+</script>
 <script setup>
 import { onMounted, reactive } from 'vue'
 import { getRole } from '@/api/auth/role.js'

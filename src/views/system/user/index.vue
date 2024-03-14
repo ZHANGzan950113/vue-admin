@@ -10,6 +10,11 @@
   </table-com>
 </template>
 
+<script>
+export default {
+  name: 'UserView'
+}
+</script>
 <script setup>
 import { onMounted, reactive } from 'vue'
 import { getUser } from '@/api/auth/user.js'

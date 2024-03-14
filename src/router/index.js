@@ -1,75 +1,51 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '@/layout/LayoutView.vue'
 
-const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/login',
-      name: 'login',
-      component: () => import('@/views/LoginView.vue'),
-      meta: {
-        title: '登录'
-      }
-    },
-    {
-      path:'/',
-      name:'layout',
-      component: Layout,
-      children: [
-        {
-          path:'/',
-          name:'home',
-          component: () => import('@/views/HomeView.vue'),
-          meta:{
-            title: '首页'
-          }
-        },
-        {
-          path:'/components/icon',
-          name:'icon',
-          component: () => import('@/views/components/IconView.vue'),
-          meta:{
-            title: '图标组件'
-          }
-        },
-        {
-          path:'/components/tablecom',
-          name:'tableCom',
-          component: () => import('@/views/components/TableView.vue'),
-          meta:{
-            title: '表格组件'
-          }
-        },
-        {
-          path:'/auth/user',
-          name:'user',
-          component: () => import('@/views/auth/UserView.vue'),
-          meta:{
-            title: '用户管理'
-          }
-        },
-        {
-          path:'/auth/role',
-          name:'role',
-          component: () => import('@/views/auth/RoleView.vue'),
-          meta:{
-            title: '角色管理'
-          }
-        },
-        {
-          path:'/auth/menu',
-          name:'menu',
-          component: () => import('@/views/auth/MenuView.vue'),
-          meta: {
-            title: '菜单管理',
-          }
-        },
-      ]
-    },
-  ]
+
+const whiteList = ['/login', '/404']
+
+// 页面
+const pages = import.meta.glob('@/views/**/index.js', {
+  eager: true,
+  import: 'default'
 })
 
+// 组件模块
+const components = import.meta.glob('@/views/**/index.vue')
+
+const routes = Object.entries(pages).map(([path, page]) => {
+  const comPath = path.replace('.js', '.vue')
+  path = path.replace('/src/views', '').replace('/index.js', '')
+  const name = path.split('/').filter(Boolean).join('-')
+  return {
+    path:page.path? path+page.path: path,
+    name: name,
+    component: components[comPath],
+    meta:page.meta
+  }
+}).filter(route => !whiteList.includes(route.path))
+
+const contantRoutes = [
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/login/index.vue'),
+    meta: {
+      title: '登录'
+    }
+  },
+  {
+    path: '/',
+    name: 'layout',
+    component: Layout,
+    redirect: '/home',
+  }
+]
+
+const router = createRouter({
+  history: createWebHashHistory(import.meta.env.BASE_URL),
+  routes: contantRoutes
+})
 
 
 export default router
