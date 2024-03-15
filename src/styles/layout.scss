@@ -60,3 +60,15 @@
 .el-checkbox__input.is-indeterminate .el-checkbox__inner::before {
   background-color: $text-200 !important;
 }
+
+.el-menu--collapse .el-sub-menu.is-active .el-sub-menu__title {
+  color: rgb(148, 51, 88) !important;
+}
+
+.el-sub-menu__title {
+  svg {
+    margin: 5px;
+    width: 16px !important;
+    height: 16px !important;
+  }
+}

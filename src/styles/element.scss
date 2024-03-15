@@ -1,0 +1,16 @@
+.el-menu--vertical.el-menu--popup-container {
+  background-color: $bg-200 !important;
+  .el-menu-item:hover {
+    background-color: $bg-300 !important;
+  }
+  .el-menu-item.is-active {
+    color: $text-100 !important;
+    font-weight: bold !important;
+  }
+}
+// .el-popper.is-pure.is-light {
+//   display: block !important;
+// }
+.el-popper.is-light {
+  border: none !important;
+}

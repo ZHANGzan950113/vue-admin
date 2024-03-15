@@ -5,12 +5,12 @@
       :index="item.path"
       @click="router.push({ path: item.path })"
     >
-      <svg-icon :class-name="item.meta.icon"></svg-icon>
+      <i class="el-icon"> <svg-icon :class-name="item.meta.icon"></svg-icon></i>
       <span class="title">{{ item.meta.name }}</span>
     </el-menu-item>
     <el-sub-menu v-else :index="item.path">
       <template #title>
-        <svg-icon :class-name="item.meta.icon"></svg-icon>
+        <i class="el-icon"> <svg-icon :class-name="item.meta.icon"></svg-icon></i>
         <span class="title">
           {{ item.meta.name }}
         </span>

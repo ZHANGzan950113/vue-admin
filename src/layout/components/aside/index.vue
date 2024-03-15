@@ -1,7 +1,7 @@
 <template>
-  <el-aside :width="width" class="aside">
+  <el-aside class="aside">
     <el-scrollbar>
-      <el-menu :default-openeds="['1', '3']" background-color="$bg-100" :collapse="isCollapse">
+      <el-menu background-color="$bg-100" :collapse="isCollapse" class="el-menu-vertical-demo">
         <template v-if="menu.length > 0">
           <menuItem :menu="menu"></menuItem>
         </template>
@@ -33,5 +33,13 @@ defineProps({
 <style lang="scss" scoped>
 .el-menu {
   border-right: none !important;
+}
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
+.aside {
+  transition: width 0.28s;
+  width: auto;
 }
 </style>
